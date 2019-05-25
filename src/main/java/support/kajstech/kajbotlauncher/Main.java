@@ -34,10 +34,6 @@ public class Main {
                 if (kajbot.isAlive()) {
                     System.out.println("Stopping bot");
                     kajbot.destroy();
-                    while (kajbot.isAlive()) {
-                        Thread.sleep(100);
-                        System.out.println("Waiting for bot to stop..");
-                    }
                 }
                 System.out.println("Downloading update..");
                 InputStream in = new URL("https://jenkins.jensz12.com/job/KajBot-Discord-Dev/8/deployedArtifacts/download/artifact.1/").openStream();
