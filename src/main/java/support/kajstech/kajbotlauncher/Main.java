@@ -12,11 +12,16 @@ import java.nio.file.StandardCopyOption;
 public class Main {
     private static Process kajbot = null;
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
+        InputStream downloadUrl = new URL("https://jenkins.jensz12.com/job/Kajbot-Discord/lastSuccessfulBuild/deployedArtifacts/download/artifact.1/").openStream();
+        if (args[0].equalsIgnoreCase("-dev")) {
+            System.out.println("Running in dev mode");
+            downloadUrl = new URL("https://jenkins.jensz12.com/job/Kajbot-Discord-Dev/lastSuccessfulBuild/deployedArtifacts/download/artifact.1/").openStream();
+        }
+
         if (!Files.exists(Paths.get(System.getProperty("user.dir") + "/kajbot.jar"))) {
             System.out.println("Downloading bot..");
-            InputStream in = new URL("https://jenkins.jensz12.com/job/KajBot-Discord-Dev/8/deployedArtifacts/download/artifact.1/").openStream();
-            Files.copy(in, Paths.get(System.getProperty("user.dir") + "/kajbot.jar"), StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(downloadUrl, Paths.get(System.getProperty("user.dir") + "/kajbot.jar"), StandardCopyOption.REPLACE_EXISTING);
             System.out.println("Download complete.");
         }
 
@@ -36,8 +41,7 @@ public class Main {
                     kajbot.destroy();
                 }
                 System.out.println("Downloading update..");
-                InputStream in = new URL("https://jenkins.jensz12.com/job/KajBot-Discord-Dev/8/deployedArtifacts/download/artifact.1/").openStream();
-                Files.copy(in, Paths.get(System.getProperty("user.dir") + "/kajbot.jar"), StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(downloadUrl, Paths.get(System.getProperty("user.dir") + "/kajbot.jar"), StandardCopyOption.REPLACE_EXISTING);
                 System.out.println("Update complete.");
                 System.out.println("Starting bot.");
                 runBot();
