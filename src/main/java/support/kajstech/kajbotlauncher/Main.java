@@ -26,14 +26,14 @@ public class Main {
             String line = reader.readLine();
             if (kajbot.isAlive() && line.equalsIgnoreCase("stop")) {
                 System.out.println("Stopping bot..");
-                kajbot.destroyForcibly();
+                kajbot.destroy();
                 System.out.println("Bot stopped.");
             }
             if (line.equalsIgnoreCase("update")) {
                 System.out.println("Starting update");
                 if (kajbot.isAlive()) {
                     System.out.println("Stopping bot");
-                    kajbot.destroyForcibly();
+                    kajbot.destroy();
                     while (kajbot.isAlive()) {
                         Thread.sleep(100);
                         System.out.println("Waiting for bot to stop..");
@@ -53,7 +53,7 @@ public class Main {
             }
             if (line.equalsIgnoreCase("exit") || line.equalsIgnoreCase("quit")) {
                 System.out.println("Quitting..");
-                kajbot.destroyForcibly();
+                kajbot.destroy();
                 System.out.println("Bot stopped.");
                 System.exit(0);
             }
