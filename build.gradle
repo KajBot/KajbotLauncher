@@ -1,0 +1,33 @@
+plugins {
+    id 'maven'
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.0.0'
+}
+
+group 'support.kajstech.kajbotlauncher'
+version '0.1'
+mainClassName = 'support.kajstech.kajbotlauncher.Main'
+sourceCompatibility = 1.8
+
+repositories {
+
+}
+
+dependencies {
+
+}
+
+shadowJar {
+    mergeServiceFiles 'META-INF/spring.*'
+    exclude "META-INF/*.SF"
+    exclude "META-INF/*.DSA"
+    exclude "META-INF/*.RSA"
+    exclude "META-INF/LICENSE"
+    exclude "META-INF/LICENSE.*"
+    exclude "META-INF/NOTICE"
+    exclude "META-INF/NOTICE.*"
+    exclude "META-INF/maven/**"
+    exclude "META-INF/proguard/**"
+    archiveName = "${baseName}-${version}.jar"
+}
