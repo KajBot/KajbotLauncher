@@ -23,8 +23,10 @@ public class Launcher {
             String line = reader.readLine();
 
             if (line.equalsIgnoreCase("stop") && kajbot != null) {
-                LogHelper.info("Stopping bot..");
-                if (kajbot.isAlive()) kajbot.destroy();
+                if (kajbot.isAlive()) {
+                    LogHelper.info("Stopping bot..");
+                    kajbot.destroy();
+                }
             }
 
             if (line.equalsIgnoreCase("update")) {
