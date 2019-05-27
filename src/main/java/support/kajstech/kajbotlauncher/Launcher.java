@@ -63,7 +63,7 @@ public class Launcher {
         InputStream downloadUrl = new URL("https://jenkins.jensz12.com/job/Kajbot-Discord/lastSuccessfulBuild/deployedArtifacts/download/artifact.1/").openStream();
         if (Arrays.toString(args).toLowerCase().contains("-dev")) {
             LogHelper.info("[WARNING] Running using '-dev'");
-            LogHelper.info("[WARNING] Downloading newest build..");
+            LogHelper.info("[WARNING] Downloading latest build..");
             downloadUrl = new URL("https://jenkins.jensz12.com/job/Kajbot-Discord-Dev/lastSuccessfulBuild/deployedArtifacts/download/artifact.1/").openStream();
         }
         Files.copy(downloadUrl, Paths.get(System.getProperty("user.dir") + "/kajbot.jar"), StandardCopyOption.REPLACE_EXISTING);
