@@ -1,4 +1,4 @@
-package support.kajstech.kajbotlauncher;
+package dk.jensbot.KajbotDiscordLauncher;
 
 import java.io.BufferedReader;
 import java.io.IOException;

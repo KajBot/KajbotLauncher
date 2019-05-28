@@ -1,4 +1,4 @@
-package support.kajstech.kajbotlauncher;
+package dk.jensbot.KajbotDiscordLauncher;
 
 import org.apache.log4j.Logger;
 

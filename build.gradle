@@ -5,9 +5,9 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '5.0.0'
 }
 
-group 'support.kajstech.kajbotlauncher'
+group 'dk.jensbot.KajbotDiscordLauncher'
 version '0.1'
-mainClassName = 'support.kajstech.kajbotlauncher.Launcher'
+mainClassName = 'dk.jensbot.KajbotDiscordLauncher.Launcher'
 sourceCompatibility = 1.8
 
 repositories {
